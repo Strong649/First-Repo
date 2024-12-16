@@ -27,7 +27,6 @@ from math import sqrt
 from IPython.display import display
 import io
 from io import StringIO
-from google.colab import drive
 from sklearn import preprocessing
 import warnings
 import requests
