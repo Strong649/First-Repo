@@ -7,3 +7,4 @@ plotly
 sklearn.model
 folium
 streamlit-folium
+IPython
