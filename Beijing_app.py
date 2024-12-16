@@ -35,7 +35,6 @@ warnings.filterwarnings('ignore')
 
 # Load your data
 data = pd.read_csv("combined_data_new.csv")
-old_data = pd.read_csv("combined_data.csv")
 data['date'] = pd.to_datetime(data['date'])
 data['year_month'] = data['date'].dt.to_period('M')
 data.set_index('date', inplace=True)
@@ -95,18 +94,18 @@ def data_overview():
     st.write("As shown in the map above, there are several stations that are clustered together and these have a significant increase in pollutant levels and Mean AQI levels which can be due to the centralised location of the stations, and the population density can be a contributing factor to this.")
 
     # Display basic information
-    st.write("**Shape of the dataset:**", old_data.shape)
+    st.write("**Shape of the dataset:**", data.shape)
     st.write("**First few rows:**")
-    st.write(old_data.head())
+    st.write(data.head())
     st.write("The data shows every hour data, which contributes well to a large dataset, however to be able to establish trends the data would need to be grouped in multiple different ways; such as by each day, each month and each year. As well as per station as well.")
 
     # Display summary statistics
     st.write("**Summary statistics:**")
-    st.write(old_data.describe())
+    st.write(data.describe())
 
     # Display missing values
     st.write("**Missing values:**")
-    st.write(old_data.isnull().sum())
+    st.write(data.isnull().sum())
     st.write("When considering how to handle missing values, there is many different ways we can manage them without skewing the dataset itself. I found that using the mean value for each of the missing values meant for a dataset that best fit my purposes.")
 
 def exploratory_data_analysis():
