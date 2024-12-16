@@ -106,7 +106,7 @@ def data_overview():
     # Display missing values
     st.write("**Missing values:**")
     st.write(data.isnull().sum())
-    st.write("When considering how to handle missing values, there is many different ways we can manage them without skewing the dataset itself. I found that using the mean value for each of the missing values meant for a dataset that best fit my purposes.")
+    st.write("When considering how to handle missing values, there is many different ways we can manage them without skewing the dataset itself. I found that using the mean value for each of the missing values meant for a dataset that best fit my purposes. As shown in the table above, each missing value was replaced with the mean value in its place.")
 
 def exploratory_data_analysis():
     st.title("Exploratory Data Analysis")
