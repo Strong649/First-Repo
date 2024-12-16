@@ -6,3 +6,4 @@ seaborn
 plotly
 sklearn.model
 folium
+streamlit-folium
