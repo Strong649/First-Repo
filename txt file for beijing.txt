@@ -1,33 +1,8 @@
-streamlit as st
-pandas as pd
-numpy as np
-matplotlib.pyplot as plt
-seaborn as sns
-plotly.express as px
-sklearn.model_selection train_test_split
+streamlit
+pandas
+numpy
+matplotlib
+seaborn
+plotly
+sklearn.model
 folium
-streamlit_folium st_folium
-folium plugins
-folium.plugins HeatMap
-folium.plugins MarkerCluster
-folium.plugins FastMarkerCluster
-folium.plugins MarkerCluster
-sklearn.model_selection train_test_split
-sklearn.preprocessing StandardScaler
-sklearn.metrics mean_squared_error
-math import sqrt
-sklearn.linear_model LinearRegression
-sklearn.metrics r2_score
-sklearn.neighbors KNeighborsRegressor
-sklearn.model_selection GridSearchCV
-sklearn.metrics mean_squared_error
-sklearn.metrics accuracy_score
-math import sqrt
-IPython.display display
-io
-io StringIO
-google.colab drive
-sklearn preprocessing
-warnings
-requests
-warnings.filterwarnings('ignore')
