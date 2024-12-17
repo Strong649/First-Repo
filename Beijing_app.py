@@ -295,7 +295,7 @@ def modeling_and_prediction():
           test_rmse_list.append(np.sqrt(mean_squared_error(y_test, test_preds)))
 
         st.subheader("Model Performance with Grid Search")
-        st.write("Root Mean Square Error (RMSE) is an effective value that allows for a numerical representation of how accurate the model is compared to actual data, showing its effectiveness to predict future data too")
+        st.write("Root Mean Square Error (RMSE) is an effective value that allows for a numerical representation of how accurate the model is compared to actual data, showing its effectiveness to predict future data too.")
         st.write(f"Training RMSE: {train_rmse:.2f}")
         st.write(f"Test RMSE: {test_rmse:.2f}")
         st.write(f"R2 Score (Optimised Model): {r2_grid:.2f}")
