@@ -113,7 +113,6 @@ def exploratory_data_analysis():
     st.title("Exploratory Data Analysis")
     st.write("These visualisations are to show the differences in each station and also the differences of each pollutant.")
 
-    st.subheader("Box Plot of Inner and Outer Stations Mean AQI")
     fig = px.Figure()
     fig.add_trace(px.Box(y=outer_station_mean_aqi, name='Outer Stations'))
     fig.add_trace(px.Box(y=inner_station_mean_aqi, name='Inner Stations'))
