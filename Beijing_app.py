@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
-import plotly.graph_objects as go
 from sklearn.model_selection import train_test_split
 import folium
 from streamlit_folium import st_folium
@@ -112,17 +111,6 @@ def data_overview():
 def exploratory_data_analysis():
     st.title("Exploratory Data Analysis")
     st.write("These visualisations are to show the differences in each station and also the differences of each pollutant.")
-
-    fig = px.box()
-    fig.add_trace(px.Box(y=outer_station_mean_aqi, name='Outer Stations'))
-    fig.add_trace(px.Box(y=inner_station_mean_aqi, name='Inner Stations'))
-    fig.update_layout(
-    title='Box Plot of AQI for Outer and Inner Stations',
-    yaxis_title='Mean AQI',
-    xaxis_title='Station Area'
-    )
-    st.plotly_chart(fig)
-    st.write('This box plot shows the AQI levels of the identified stations that are on the inner parts of Bejing and the stations located on the outer parts of Bejing.')
 
     fig = px.histogram(data, x='station', y=selected_pollutants_df, title='Mean Pollutant Levels by Station', barmode='stack')
 
