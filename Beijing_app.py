@@ -112,6 +112,18 @@ def exploratory_data_analysis():
     st.title("Exploratory Data Analysis")
     st.write("These visualisations are to show the differences in each station and also the differences of each pollutant.")
 
+    st.subheader("Box Plot of Inner and Outer Stations Mean AQI")
+    fig = go.Figure()
+    fig.add_trace(go.Box(y=outer_station_mean_aqi, name='Outer Stations'))
+    fig.add_trace(go.Box(y=inner_station_mean_aqi, name='Inner Stations'))
+    fig.update_layout(
+    title='Box Plot of AQI for Outer and Inner Stations',
+    yaxis_title='Mean AQI',
+    xaxis_title='Station Area'
+    )
+    st.plotly_chart(fig)
+    st.write('This box plot shows the AQI levels of the identified stations that are on the inner parts of Bejing and the stations located on the outer parts of Bejing.')
+
     fig = px.histogram(data, x='station', y=selected_pollutants_df, title='Mean Pollutant Levels by Station', barmode='stack')
 
     # Add dropdown menus to select pollutants
