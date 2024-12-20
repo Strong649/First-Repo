@@ -48,6 +48,7 @@ location_data = pd.DataFrame({
      }, dtype=str)
 outer_station = location_data[location_data['location'].isin(['Dingling', 'Huairou', 'Shunyi', 'Changping', 'Wanliu'])]
 inner_station = location_data[location_data['location'].isin(['Dongsi', 'Guanyuan', 'Gucheng', 'Nongzhanguan', 'Tiantan', 'Aotizhongxin', 'Wanshouxigong'])]
+mean_aqi = data.groupby('station')['AQI'].mean()
 outer_station_mean_aqi = mean_aqi[outer_station['location']]
 inner_station_mean_aqi = mean_aqi[inner_station['location']]
 df_pollutants = data[selected_pollutants_df]
