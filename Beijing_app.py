@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
+import plotly.graph_objects as go
 from sklearn.model_selection import train_test_split
 import folium
 from streamlit_folium import st_folium
@@ -45,6 +46,10 @@ location_data = pd.DataFrame({
     'lat': [116.4042655, 116.3030507, 116.223521, 116.4341427, 116.3609186, 116.39793, 116.68783, 116.46732, 116.8665467, 116.39912, 116.25758, 116.367375],
     'location': ['Aotizhongxin', 'Changping', 'Dingling', 'Dongsi', 'Guanyuan', 'Gucheng', 'Huairou', 'Nongzhanguan', 'Shunyi', 'Tiantan', 'Wanliu', 'Wanshouxigong']
      }, dtype=str)
+outer_station = location_data[location_data['location'].isin(['Dingling', 'Huairou', 'Shunyi', 'Changping', 'Wanliu'])]
+inner_station = location_data[location_data['location'].isin(['Dongsi', 'Guanyuan', 'Gucheng', 'Nongzhanguan', 'Tiantan', 'Aotizhongxin', 'Wanshouxigong'])]
+outer_station_mean_aqi = mean_aqi[outer_station['location']]
+inner_station_mean_aqi = mean_aqi[inner_station['location']]
 df_pollutants = data[selected_pollutants_df]
 df_pollutants = df_pollutants.apply(pd.to_numeric, errors='coerce')
 df_pollutants = df_pollutants.dropna()
@@ -111,6 +116,20 @@ def data_overview():
 def exploratory_data_analysis():
     st.title("Exploratory Data Analysis")
     st.write("These visualisations are to show the differences in each station and also the differences of each pollutant.")
+
+    fig = go.Figure()
+    fig.add_trace(go.Box(y=outer_station_mean_aqi, name='Outer Stations'))
+    fig.add_trace(go.Box(y=inner_station_mean_aqi, name='Inner Stations'))
+
+    fig.update_layout(
+        title='Box Plot of AQI for Outer and Inner Stations',
+        yaxis_title='Mean AQI',
+        xaxis_title='Station Area'
+    )
+
+    st.plotly_chart(fig)
+    st.write("This box plot takes the 5 outer stations of 'Dingling', 'Huairou', 'Shunyi', 'Changping', 'Wanliu' and compares the AQI levels against the 7 inner stations of 'Dongsi', 'Guanyuan', 'Gucheng', 'Nongzhanguan', 'Tiantan', 'Aotizhongxin', 'Wanshouxigong'.")
+
 
     fig = px.histogram(data, x='station', y=selected_pollutants_df, title='Mean Pollutant Levels by Station', barmode='stack')
 
